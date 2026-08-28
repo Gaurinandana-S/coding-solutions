@@ -40,22 +40,22 @@ Output: [0]
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-08-28T11:50:56.137Z  
+**Runtime:** 2809 ms (beats 5.01%)  
+**Memory:** 20.5 MB (beats 24.89%)  
+**Submitted:** 2026-08-28T11:52:44.421Z  
 
 ```py
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-       for i in range(0,len(nums)):
-        if (nums[i]==0):
-            j=0
-            for j in range (0,len(nums)-1):
-                nums[j]=nums[j+1]
-            nums[j]=nums[len(nums)-1]
-            nums[len(nums)-1]=0
-        
-        
+        # Loop backwards from the last element down to 0
+        for i in range(len(nums) - 1, -1, -1):
+            if nums[i] == 0:
+                # Your inner loop: shift everything left
+                for j in range(i, len(nums) - 1):
+                    nums[j] = nums[j + 1]
+                
+                # Place the zero at the very end
+                nums[-1] = 0
 ```
 
 ---
