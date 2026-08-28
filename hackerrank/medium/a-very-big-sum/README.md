@@ -1,4 +1,4 @@
-# Compare the Triplets
+# A Very Big Sum
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -63,7 +63,7 @@ When we add several integer values, the resulting sum might exceed the above ran
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-28T11:26:56.818Z  
+**Submitted:** 2026-08-28T11:32:02.550Z  
 
 ```py
 #!/bin/python3
@@ -75,33 +75,28 @@ import re
 import sys
 
 #
-# Complete the 'compareTriplets' function below.
+# Complete the 'aVeryBigSum' function below.
 #
-# The function is expected to return an INTEGER_ARRAY.
-# The function accepts following parameters:
-#  1. INTEGER_ARRAY a
-#  2. INTEGER_ARRAY b
+# The function is expected to return a LONG_INTEGER.
+# The function accepts LONG_INTEGER_ARRAY ar as parameter.
 #
 
-def compareTriplets(a, b):
-    res = [0] * 2
-    for i in range(0,len(a)):
-        if(a[i]>b[i]):  res[0]+=1
-        elif(a[i]<b[i]):   res[1]+=1
-    return res
-            
+def aVeryBigSum(ar):
+    tot=0
+    for i in range(0,len(ar)):
+        tot+=ar[i]
+    return tot
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    a = list(map(int, input().rstrip().split()))
+    ar_count = int(input().strip())
 
-    b = list(map(int, input().rstrip().split()))
+    ar = list(map(int, input().rstrip().split()))
 
-    result = compareTriplets(a, b)
+    result = aVeryBigSum(ar)
 
-    fptr.write(' '.join(map(str, result)))
-    fptr.write('\n')
+    fptr.write(str(result) + '\n')
 
     fptr.close()
 
